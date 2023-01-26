@@ -1,3 +1,5 @@
+const { loginPage } = require("../pages/LoginPage");
+
 Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
@@ -6,19 +8,12 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 describe("Testing the login page", () => {
   // NOTE LP-01
   it.only("LP-01: Verify that the user is able to login successfully with a valid username and valid password.", () => {
-    cy.login("Admin", "admin123");
-    cy.url().should("include", "dashboard/index");
+    loginPage.logInUser();
   });
 
   // NOTE LP-02
-  it("LP-02: Verify that the user is able to logout successfully.", () => {
-    cy.login("Admin", "admin123");
-    cy.get(".oxd-userdropdown-name").click();
-    cy.get('[role="menuitem"]').last().click();
-    cy.url().should(
-      "eq",
-      "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-    );
+  it.only("LP-02: Verify that the user is able to logout successfully.", () => {
+    loginPage.logOutUser();
   });
 
   // NOTE LP-03

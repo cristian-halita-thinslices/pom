@@ -1,9 +1,3 @@
-$ git add .
+!!! IMPORTANT
 
-# Adds all the files in the local repository and stages them for commit
-
-OR if you want to add a specific file
-
-$ git add README.md
-
-# To add a specific file
+The 'node_modules' folder is missing, and it should be installed manually after you clone this project.
